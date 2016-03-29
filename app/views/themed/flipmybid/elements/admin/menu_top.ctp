@@ -1,0 +1,3 @@
+<li><?php echo $html->link('View Site', '/', array('target' => '_blank', 'style' => 'color:#FFF !important;'));?></li>
+<li><?php //echo $html->link('Contact Innosoft', 'http://www.innosoft.co.nz', array('target' => '_blank', 'style' => 'color:#FFF !important;'));?></li>
+<li><?php echo $html->link('Logout', array('controller' => 'users', 'action' => 'logout', 'admin' => false), array('style' => 'color:#FFF !important;'));?></li>

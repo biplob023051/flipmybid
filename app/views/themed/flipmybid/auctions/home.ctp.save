@@ -1,0 +1,41 @@
+<?php if(!$session->check('Auth.User')):?>
+	<?php echo $this->element('register'); ?>
+<?php else: ?>
+	<?php echo $this->element('tab'); ?>
+<?php endif; ?>
+	<div class="g5">
+    	<div id="auctions" class="rounded">
+           <div id="tabs">
+                <ul>
+                    <li class="menuactive"><a href="/">Home</a></li>
+					<li><a href="/auctions">Live Auctions</a></li>
+					<li><a href="/auctions/closed">Closed Auctions</a></li>
+					<li><a href="/auctions/future">Upcoming Auctions</a></li>
+                    <li><a href="/auctions/easyview">Easy View</a></li>
+                </ul>
+            </div>
+            <?php if(!empty($auctions_end_soon)) : ?>
+				<?php foreach ($auctions_end_soon as $auction) : ?>
+                    <?php echo $this->element('auction', array('auction' => $auction)); ?>
+                <?php endforeach; ?>
+            <?php else : ?>
+				<div class="c-content">
+				 sLucnCheck back soon!</h2>
+
+					<p>Enter your email address below to pre-register and to qualify for a free gift when we launch!</p>
+
+					<?php echo $form->create('Page', array('url' => '/contact')); ?>
+
+					<fieldset>
+						<?php echo $form->input('name', array('type' => 'hidden', 'value' => 'Email Sign Up'));?>
+						<?php echo $form->input('redirect', array('type' => 'hidden', 'value' => '/'));?>
+						<?php echo $form->input('email', array('label' => 'Email Address')); ?>
+			            <?php echo $form->submit('Sign Up', array('class'=>'submit', 'div'=>false)); ?>
+						<?php echo $form->end(); ?>
+					</fieldset>
+				</div>
+            <?php endif; ?>
+        <!--/ Listing -->
+        </div>
+    <!--/ Auctions -->
+</div>

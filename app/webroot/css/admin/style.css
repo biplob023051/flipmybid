@@ -1,0 +1,525 @@
+* {
+	margin: 0;
+	padding: 0;
+} 
+
+body {
+	background: #fff url(../../img/admin/bg-main.jpg) repeat-x;
+	font: 75% Arial, Helvetica, sans-serif;
+	color: #333;
+	line-height: 160%;
+	margin: 20px auto;
+	text-align: center;
+}
+
+a {
+	font-weight: bold;
+	color: #5d3535;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a img {
+	border: none;
+}
+
+p {
+	clear: both;
+}
+
+h1, h2, h3 {
+	clear: both;
+	letter-spacing: -1px;
+	margin: 10px 0;
+	line-height: 140%;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 16px;
+	letter-spacing: 0;
+}
+
+table {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 20px 0;
+}
+
+table tr th {
+	background: #000;
+	font-weight: bold;
+	color: #fff;
+	padding: 3px 3px 3px 5px;
+	border-bottom: 2px solid #858585;
+}
+
+table tr th a {
+	color: #fff;
+}
+
+table tr td {
+	padding: 3px 3px 3px 5px;
+	border-bottom: 1px solid #ccc;
+	vertical-align: top;
+}
+
+table tr.altrow td {
+	background: #f5f5f5;
+	padding: 4px;
+	border-bottom: 1px solid #cfdce6;
+}
+
+form {
+	clear: both;
+}
+
+/* Common Style */
+.clearfix {
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+#container {
+	width: 98%;
+	.width: 97%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#header {
+	margin-bottom: 10px;
+}
+
+#footer {
+	margin: 20px 0 0 0;
+}
+
+/* Header */
+#header .logo {
+	float: left;
+	width: 250px;
+	margin: 30px 20px 0 0;
+}
+
+#header a {
+	color: #fff;
+}
+
+#header .top-links {
+	float: right;
+	width: 700px;
+	color: #fff;
+	position: relative;
+	top: -6px;
+}
+
+#header .top-links a {
+	color: #fff;
+}
+
+#header .top-links ul {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+#header .top-links ul li {
+	float: left;
+	list-style: none;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+
+/* Drop down menu */
+.top-menu {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 14px 0 6px 0;
+	_margin: 6px 0 0 0;
+	padding: 8px 0;
+	.padding: 8px 0 2px 0;
+}
+
+/* Drop down menu */
+#nav, #nav ul {
+	float: left;
+	width: 100%;
+	list-style: none;
+	line-height: 1;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0;
+	margin: 15px 0 0 0;
+}
+
+#nav ul.sf-menu {
+	margin-top: 15px !important;
+}
+
+ul#nav {
+	margin: 0;
+}
+
+#nav li a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 0 2em 0 0;
+	margin-bottom: 4px;
+}
+
+#nav li li a {
+	display: block;
+	text-decoration: none;
+	padding: 0;
+}
+
+
+#nav li li a {
+	display: block;
+	text-decoration: none;
+	padding: 0.4em 2em 0.4em 1em;
+}
+
+#nav a.daddy {
+	background: url(../images/arrow.gif) center right no-repeat;
+}
+
+#nav li {
+	float: left;
+	padding: 0;
+}
+
+#nav li ul {
+	position: absolute;
+	left: -999em;
+	height: auto;
+	width: 16.4em;
+	w\idth: 15.9em;
+	font-weight: normal;
+	border-width: 0.25em;
+	margin: 4ox 0 0 0;
+	background: #000;
+}
+
+#nav ul {
+	margin-top: 0 !important;
+}
+
+#nav li li {
+	padding-right: 1em;
+	width: 14.8em;
+	border-left: 1px solid #515151;
+	border-right: 1px solid #515151;
+	border-bottom: 1px solid #515151;
+}
+
+#nav li ul a {
+	width: 15em;
+	w\idth: 11em;
+}
+
+#nav li ul ul {
+	margin: -1.75em 0 0 14em;
+}
+
+#nav li:hover ul ul, #nav li:hover ul ul ul, #nav li.sfhover ul ul, #nav li.sfhover ul ul ul {
+	left: -999em;
+}
+
+#nav li:hover ul, #nav li li:hover ul, #nav li li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul, #nav li li li.sfhover ul {
+	left: auto;
+}
+
+#nav li li:hover, #nav li li.sfhover {
+	background: #3e3e3e;
+	color: #fff;
+}
+
+/* Breadcrumb */
+.bar-title {
+	font-size: 11px;
+}
+
+.breadcrumb {
+	background: #91009e !important;
+	font-size: 11px;
+	color: #fff;
+	margin: 0 0 20px 0;
+	background: #f7941e;
+	margin-top: 8px;
+	padding: 5px;
+}
+
+.breadcrumb a {
+	color: #fff;
+}
+
+/* Admin Category Menus */
+ul.admin-cat-menus {
+	margin: 0;
+	padding: 0;
+}
+
+ul.admin-cat-menus li {
+	float: left;
+	width: 200px;
+	list-style: none;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+
+/* Paging */
+.paging {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.paging a {
+	text-decoration: none;
+}
+
+.totalresults {
+}
+
+.pagenumber ul {
+	margin: 0;
+	padding: 0;
+}
+
+.pagenumber ul li {
+	float: left;
+	list-style: none;
+	font-weight: bold;
+	margin-right: 4px;
+	padding: 2px 4px;
+	border: 1px solid #5b3723;
+}
+
+.pagenumber .current {
+	color: #89583d;
+}
+
+/* Actions */
+.actions {
+	clear: both;
+	margin: 20px 0;
+}
+
+.actions ul {
+	margin: 0;
+	padding: 0;
+}
+
+.actions ul li {
+	float: left;
+	list-style: none;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+
+/* Fieldset */
+fieldset {
+	clear: both;
+	border: none;
+	margin: 10px 0;
+}
+
+fieldset legend {
+	font: bold 16px Arial, Helvetica, sans-serif;
+	color: #333;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+	.margin-left: -6px;
+}
+
+fieldset label {
+	float: left;
+	display: inline;
+	width: 150px;
+	margin-right: 10px;
+}
+
+fieldset .radio-group label {
+	float: none;
+	display: inline;
+	width: auto;
+	margin-right: 10px;
+}
+
+fieldset .form-container {
+	clear: both;
+	padding: 4px 0 6px 0;
+}
+
+fieldset .form-container input.textbox, fieldset .form-container textarea {
+	font: 14px Arial, Helvetica, sans-serif;
+	width: 50%;
+	padding: 2px;
+	border: 1px solid #dedede;
+}
+
+fieldset .form-container input.checkbox {
+	font: 14px Arial, Helvetica, sans-serif;
+	width: auto;
+	padding: 2px;
+}
+
+fieldset .form-container input.button {
+	font: 14px Arial, Helvetica, sans-serif;
+	width: auto;
+	padding: 2px;
+}
+
+fieldset .form-container input.form-error {
+	border: 1px solid #c18888;
+}
+
+fieldset .form-container .error-message {
+	font-size: 11px;
+	font-weight: bold;
+	color: #e45b00;
+	margin-left: 160px;
+	_margin-left: 163px;
+}
+
+fieldset .error-message {
+	font-size: 11px;
+	font-weight: bold;
+	color: #e45b00;
+}
+
+
+/* Form */
+fieldset {
+	border: none;
+}
+
+fieldset legend {
+	font: bold 16px Arial, Helvetica, sans-serif;
+	letter-spacing: -1px;
+	margin-bottom: 10px;
+	.margin-left: -6px;
+}
+
+fieldset .text label {
+	float: left;
+	display: inline;
+	width: 150px;
+	margin-right: 10px;
+	padding-bottom: 8px;
+}
+
+fieldset .input {
+	clear: both;
+	padding: 4px 0 6px 0;
+	border-bottom: 1px solid #f5f5f5;
+}
+
+fieldset .text input, fieldset .password input, fieldset .textarea textarea {
+	font: 14px Arial, Helvetica, sans-serif;
+	width: 50%;
+	padding: 2px;
+	border-top: 1px solid #d5d5d5;
+	border-left: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	border-right: 1px solid #ebebeb;
+}
+
+fieldset .checkbox label {
+	float: none;
+	padding-left: 4px;
+}
+
+fieldset div.submit {
+	margin: 10px 0;
+}
+
+fieldset div.submit input {
+	margin-left: 160px;
+	padding: 2px;
+}
+
+fieldset .text .error-message, fieldset .select .error-message, fieldset .textarea .error-message,
+fieldset .checkbox .error-message, fieldset .password .error-message {
+	font-size: 11px;
+	color: #e45b00;
+}
+
+fieldset .select .error-message, fieldset .textarea .error-message, div.checkbox, fieldset .password .error-message {
+	margin-left: 160px;
+}
+
+fieldset .hint {
+	font-size: 11px;
+	color: #666;
+	margin-left: 160px;
+	_margin-left: 163px;
+}
+
+dl {
+	float: left;
+	clear: both;
+	margin: 10px 0;
+}
+
+dl dt {
+	float: left;
+	clear: both;
+	width: 400px;
+	font-style: italic;
+	margin-right: 10px;
+	padding-bottom: 6px;
+}
+
+dl dd {
+	float: left;
+	width: 450px;
+	padding-bottom: 6px;
+}
+
+/* Messages */
+#flashMessage {
+	clear: both;
+	margin: 20px 0;
+}
+
+.message {
+	clear: both;
+	background: #f15407;
+	font-weight: bold;
+	color: #fff;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.success{
+	clear: both;
+	background: #96d01d;
+	font-weight: bold;
+	color: #fff;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.error-message {
+	font-size: 11px;
+	font-weight: bold;
+	color: #f4e476;
+}

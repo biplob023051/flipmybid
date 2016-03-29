@@ -1,0 +1,36 @@
+AddHandler application/x-httpd-php53 .php
+
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteCond %{HTTP_HOST} ^flipmybid\.com$ [NC]
+   RewriteRule ^.*$ http://www.flipmybid.com%{REQUEST_URI} [R=301,L]
+
+   RewriteCond %{REQUEST_URI} "/dev/"
+   RewriteRule (.*) $1 [L]
+   RewriteRule    ^$ app/webroot/    [L]
+   RewriteRule    (.*) app/webroot/$1 [L]
+
+   #RewriteRule ^$ webroot/    [L]
+   #RewriteRule (.*) webroot/$1 [L]
+</IfModule>
+
+#Permition for HTC file
+AddType text/x-component .htc
+
+
+# Begin: CloudFlare enabled for www.flipmybid.com
+RewriteCond %{HTTPS}s ^(on(s)|off)$
+RewriteRule .* - [E=schar:%2]
+RewriteCond %{HTTP_HOST} ^(flipmybid\.com)$
+RewriteRule ^(.*)$ http%{ENV:schar}://www.%1/$1 [R=301,L]
+# End: CloudFlare enabled for www.flipmybid.com
+
+
+# Begin: CloudFlare enabled for www.flipmybid.co.uk
+RewriteCond %{HTTPS}s ^(on(s)|off)$
+RewriteRule .* - [E=schar:%2]
+RewriteCond %{HTTP_HOST} ^(flipmybid\.co\.uk)$
+RewriteRule ^(.*)$ http%{ENV:schar}://www.%1/$1 [R=301,L]
+# End: CloudFlare enabled for www.flipmybid.co.uk
+
+

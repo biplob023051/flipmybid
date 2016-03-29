@@ -1,0 +1,18 @@
+div#cBanner
+{
+	visibility:hidden;
+	height: 25px;
+	width: 100%;
+	background: black;
+	color:White;
+	filter:alpha(opacity=60);
+	opacity:0.5;
+	right: 0px;
+	top: 0px;
+	text-align: center;
+}
+
+div#cBanner a:link, div#cBanner a:hover
+{
+	color: #08afd8;
+}

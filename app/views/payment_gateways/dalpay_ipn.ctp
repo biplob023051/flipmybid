@@ -1,0 +1,1 @@
+<!--success--><a href="<?php echo $appConfigurations['url']; ?>/accounts">Click here to return to the website</a>

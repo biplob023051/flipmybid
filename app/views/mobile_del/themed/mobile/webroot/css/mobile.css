@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  color: black;
+  font-family: Druid, Verdana, Sans;
+  font-size: 10pt;
+  background: white;
+}
+
+h1,h2,h3 { font-weight: bold; }
+h1 { font-size: 130%; }
+h2 { font-size: 120%; }
+h3 { font-size: 110%; }
+
+a { text-decoration: none; }
+a img { border: 1px black solid; }
+
+.header * {
+  display: inline;
+}
+.header {
+  display: block;
+  background: #3d3;
+  padding: 2px 5px;
+}
+.header h1 span.subheader {
+  color: white;
+  font-size: 80%;
+  font-style: italic;
+}
+.footer {
+  display: block;
+  background: #888;
+}
+
+fieldset {
+  margin: 5pt;
+  border: none;
+}
+fieldset legend {
+  font-weight: bold;
+}
+fieldset div label {
+  display: block;
+  width: 100%;
+}
+fieldset div input[type=textfield],
+fieldset div input[type=text] {
+  width: 100%;
+  font-size: 150%;
+}
+input[type=checkbox] + label {
+  display: inline;
+}
+form * input[type=submit] {
+  font-size: 150%;
+  border: 2px solid black;
+  background: #3d3;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.message {
+  display: block;
+  font-size: 120%;
+  margin: 5pt;
+  padding: 5pt;
+  border: 1px solid black;
+  background: #fd3;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}

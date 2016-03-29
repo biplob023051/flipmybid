@@ -1,0 +1,64 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// +---------------------------------------------------------------------------------------------------+//
+// + 1
+// + Last Modified: 09/03/2009
+// + Modified By: Michael Houghton
+// +---------------------------------------------------------------------------------------------------+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+This is the instructions for installing your Telebid Clone.
+
+If you need help with these instructions email michael@feistysites.com
+
+The install should look like the following site:
+http://demo.feistysites.com
+
+Please note: For significant performance improvements, install Zend Optimizer on your server.
+
+Here are the instructions
+
+1) 	Download the code (you have already done this if you are reading this!)
+
+2) 	Move the code (if it is not already) to a folder in your webroot folder.  For example /var/www/telebid.
+	If you are moving this code to a live server, copy the code into the public_html or httpdocs directory.
+
+3) 	This step is only needed if the site isn't accessable from a domain name directly. e.g. www.telebid.com
+	You need to set up a subdomain to access the site, so that the website URL is telebid.localhost
+	For more information visit: http://blog.ubrio.us/gnome/how-to-subdomain-localhost-ubuntu-osx
+
+4) 	The next step is to create your database and dump the SQL.  In the code under /app/config/sql import the
+	file telebid.sql into your database.
+
+5) 	Now you need to create your config file.  In app/config you will see a file called config.default.php.
+	Rename this to config.php and fill out the details so that they match yours.  Turn demoMode to true for now.
+
+6) 	Now you need to chmod 777 the following directories:
+	/app/tmp
+	/app/tmp/cache
+	/app/tmp/cache/models
+	/app/tmp/cache/persistant
+	/app/tmp/cache/views
+	/app/webroot/img/category_images
+	/app/webroot/img/category_images/max
+	/app/webroot/img/category_images/thumbs
+	/app/webroot/img/product_images
+	/app/webroot/img/product_images/max
+	/app/webroot/img/product_images/thumbs
+
+7) 	Now you need to create the following Cron Jobs.  We use CURL to access the URLs, but contact me if you server doesn't have CURL installed.
+	These cron jobs should be set to run every minute, of every hour, or every day.  Make sure the cronTime in the config is set to 1 also.
+	The 4 commands you need to set up are:
+	curl -s -o /dev/null http://www.domain.com/daemons.php?type=bidbutler
+	curl -s -o /dev/null http://www.domain.com/daemons.php?type=extend
+	curl -s -o /dev/null http://www.domain.com/daemons.php?type=close
+	curl -s -o /dev/null http://www.domain.com/daemons/cleaner
+	curl -s -o /dev/null http://www.domain.com/daemons/winner
+
+	If you are running the site on your local host, you can test these things by simply running the daemons directly on another browser
+	and set the cronTime to say 10 to keep it running.
+
+8)	You should now be able to access the website.  Register on the website, and your account will be set to admin.
+	Once you have done this, turn turn the demoMode back to false.
+
+Thats it!  Enjoy the code!
+Michael Houghton

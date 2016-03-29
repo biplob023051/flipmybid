@@ -1,0 +1,352 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <base href="http://fi.sunnycent.com/" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="SunnyCent:in viihteellisessä verkkokaupassa asiakkailla on mahdollisuus ostaa uusia tuotteita tai palveluita vain murto-osalla niiden normaalista hinnasta." />
+        <link rel="icon" type="image/png" href="http://www.sunnycent.com/data/shops/1.png" />
+        <link rel="stylesheet" type="text/css" href="layout/styles/style.css?3.7.4" />
+        <link rel="stylesheet" type="text/css" href="layout/styles/management.css?3.7.4" media="all" />
+        <link rel="stylesheet" type="text/css" href="layout/styles/generic.css?3.7.4" />
+        <script src="js/jquery.js?3.7.4" type="text/javascript"></script>
+        <script src="js/config.php?3.7.4" type="text/javascript"></script>
+        <script src="js/bobprice.js?3.7.4" type="text/javascript"></script>
+        <script src="js/popup.js?3.7.4" type="text/javascript"></script>
+        <script src="js/clock.js?3.7.4" type="text/javascript"></script>
+        <script src="js/tools.js?3.7.4" type="text/javascript"></script>
+        <script src="js/http.js?3.7.4" type="text/javascript"></script>
+        <script src="js/wbids.js?3.7.4" type="text/javascript"></script>
+        <script src="js/power.js?3.7.4" type="text/javascript"></script>
+        <script src="js/eff_fade.js?3.7.4" type="text/javascript"></script>
+        <script src="layout/sunnycent.js?3.7.4" type="text/javascript"></script>
+        <script src="layout/scripts.js?3.7.4" type="text/javascript"></script>
+                <title>
+        Senttihuutokauppa SunnyCent - Reilusti Viihteellinen Verkkokauppa        </title>
+        <!-- wBids scripts -->
+    </head>
+    <body>
+        <div class="popup" id="popup"></div>
+        <div class="popupbox" id="popupbox">
+            <div class="popupboxtop"></div>
+            <a id="popup_close" href="javascript:popup_close()" title="CLOSE"></a>
+            <div class="popupboxcenter">
+                <div class="popuppadding">
+                    <div id="popup_page"></div>
+                    <div id="popup_normal">
+                        <h2 id="popup_header"></h2>
+                        <p id="popup_msg"></p>
+                        <br />
+                        <div id="popup_yesno">
+                            <input type="button" id="popup_yes" value="Kyllä" onclick="popup_action(true)" />
+                            <input type="button" id="popup_no" value="Ei" onclick="popup_action(false)" />
+                        </div>
+                        <div id="popup_ok">
+                            <input type="button" value="OK" onclick="popup_action(true)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popupboxbottom"></div>
+        </div>
+        <div id="wrap">
+                        <div class="minibox" id="minibox_cart">
+                Kauppa avoinna<br />
+                11 - 01            </div>
+                        <div class="minibox" id="minibox_clock">
+                <div id="clock"></div>
+                <span id="serverTime_hour">14</span>:<span id="serverTime_minute">51</span><br />
+                <span id="serverTime_wday">Keskiviikko</span><br />
+                <span id="serverTime_day">29</span>.<span id="serverTime_month">09</span>.<span id="serverTime_year">2010</span>
+            </div>
+            <div id="header">
+                <h1><a href="index.php"><span>SunnyCent.com</span></a></h1>
+
+                
+                                <div id="login">
+                    <form action="/layout/img/exclamation.png" method="post">
+                    <input type="hidden" name="action" value="login" />
+                    <div class="a_username"><input type="text" class="a_username" name="a_username" value="Käyttäjänimi" onfocus="this.value = ''"/></div>
+                    <div class="a_password"><input type="password" class="a_password" name="a_password" value="Salasana" onfocus="this.value = ''"/></div><input type="submit" class="submit" value="&nbsp;" />
+                    <p>
+                        <label><input type="checkbox" value="yes" name="remember" /> Pysy kirjautuneena</label><br />
+                        Salasana hukassa?<br />
+                        <a href="forgotpass.php">Tilaa uusi tästä</a><br />
+                    </p>
+                    </form>
+                </div>
+                            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.php" >Etusivu</a></li>
+                    <li><a href="coming.php" >Tulevat tuotteet</a></li>
+                    <li><a href="sold.php" >Myydyt tuotteet</a></li>
+                    <li><a href="#" onclick="eff_fade_in('help_popup', 500, 32); return false;" >Apua</a></li>
+                                        <li><a href="register.php" >Rekisteröidy!</a></li>
+                                    </ul>
+            </div>
+            <!-- HELP -->
+            <div id="help_popup">
+                <img src="layout/img/cross.png" class="close" onclick="javascript:eff_fade_out('help_popup', 1000, 32);" />
+                <iframe src="http://www.localhost.fi/demo/sunnycenthelp/index.php"></iframe>
+            </div>
+            <!-- ADS -->
+            <div id="adspace">
+                <div class="fleft">
+   <a   title="Rekisteröidy!"
+        href="register.php"
+        style="width: 499px; height: 132px; display: block; float: left; background: url('http://www.sunnycent.com/data/banner/7.dat') no-repeat center center;"></a>
+                </div>
+                <div class="fright">
+<object
+  classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0"
+  width="499" height="132">
+  <param name="allowScriptAccess" value="always" />
+  <param name="allowFullScreen" value="false" />
+  <param name="movie" value="http://www.sunnycent.com/data/banner/285.dat" />
+  <param name="quality" value="high" />
+  <embed src="http://www.sunnycent.com/data/banner/285.dat" quality="high" bgcolor="#000000" width="499" height="132"
+    type="application/x-shockwave-flash"
+    pluginspage="http://www.macromedia.com/go/getflashplayer"
+    allowScriptAccess="always" allowFullScreen="false">
+  </embed>
+</object>                </div>
+            </div>
+            <!-- ADS END -->
+            <div id="content">
+                <!-- RIGHT BAR -->
+                <div id="right_bar">
+                    <div class="banners"> 
+                        <a  title="Reilu peli"
+        href="user_list.php"
+        style="width: 183px; height: 276px; display: block; float: left; background: url('http://www.sunnycent.com/data/banner/44.dat') no-repeat center center;"></a>    <a  title="Kakusuun siirtosivu"
+        href="kakusuu.php"
+        style="width: 183px; height: 177px; display: block; float: left; background: url('http://www.sunnycent.com/data/banner/45.dat') no-repeat center center;"></a>                    </div>
+                    <div class="bid_packs">
+                        <div class="top"></div>
+                        <div class="bg">
+                            <h3>Huutopaketit</h3>
+                            <dl>
+                                                                <dt>20 kpl</dt>
+                                <dd>9,80 �?�</dd>
+                                                                <dt>40 kpl</dt>
+                                <dd>19,60 �?�</dd>
+                                                                <dt>60 kpl</dt>
+                                <dd>29,40 �?�</dd>
+                                                                <dt>100 kpl</dt>
+                                <dd>49,00 �?�</dd>
+                                                                <dt>200 kpl</dt>
+                                <dd>98,00 �?�</dd>
+                                                                <dt>300 kpl</dt>
+                                <dd>147,00 �?�</dd>
+                                                                <dt>500 kpl</dt>
+                                <dd>245,00 �?�</dd>
+                                                                <dt>1000 kpl</dt>
+                                <dd>490,00 �?�</dd>
+                                                            </dl>
+                            <h3>SMS-Paketit</h3>
+                            <dl>
+                                <dt>20 kpl</dt>
+                                <dd>10,00 �?�</dd>
+                                <dt>40 kpl</dt>
+                                <dd>20,00 �?�</dd>
+                            </dl>
+                            <a href="buy_select_bidpack.php" class="buy_button">Osta huutoja</a>
+                        </div>
+                        <div class="bottom"></div>
+                    </div>
+                    <div class="facebook">
+                        <div class="cutter">
+                            <iframe src="http://www.facebook.com/plugins/likebox.php?api_key=113869198637480&connections=6&height=285&id=166686786529&locale=en_US&sdk=joey&stream=false&width=197&header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowTransparency="true"></iframe>
+                        </div>
+                    </div>
+                    <div class="banners"> 
+                        <a  
+        href="support.php"
+        style="width: 183px; height: 177px; display: block; float: left; background: url('http://www.sunnycent.com/data/banner/23.dat') no-repeat center center;"></a>                    </div>
+
+                    <div class="iconbox">
+                        <div class="ib_top"></div>
+                        <div class="ib_bg">
+                            <div class="ib_grad">
+                                <h4>Merkkien selitykset</h4>
+                                <table>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/freeroll.png" alt="FREEROLL - kohde! Huutaminen ei maksa mitään ja huudot eivät kulu. Voittaja maksaa vain tarjoamansa loppusumman!"
+                                                 title="FREEROLL - kohde! Huutaminen ei maksa mitään ja huudot eivät kulu. Voittaja maksaa vain tarjoamansa loppusumman!" />
+                                        </td>
+                                        <td class="text">
+                                            FREEROLL<br />
+                                            Huutaminen on ilmaista.                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/quick.png" alt="PIKAHUUTO! Kohteen huutoaika putoaa aina erikseen määritetyn huutomäärän välein. Näet kohteen kuvauksesta millaisin välein huutoaika putoaa."
+                                                 title="PIKAHUUTO! Kohteen huutoaika putoaa aina erikseen määritetyn huutomäärän välein. Näet kohteen kuvauksesta millaisin välein huutoaika putoaa." />
+                                        </td>
+                                        <td class="text">
+                                            PIKAHUUTO<br />
+                                            Huutoaika lyhenee vaiheittain.                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/cashback.png" alt="Tuotteessa Cash Back - ominaisuus! 1. Eniten huutoja käyttänyt saa 50 huutoa takaisin. 2. Toiseksi eniten huutoja käyttänyt saa 25 huutoa takaisin. Huom! Voittaja ei saa huutoja."
+                                                title="Tuotteessa Cash Back - ominaisuus! 1. Eniten huutoja käyttänyt saa 50 huutoa takaisin. 2. Toiseksi eniten huutoja käyttänyt saa 25 huutoa takaisin. Huom! Voittaja ei saa huutoja." />
+                                        </td>
+                                        <td class="text">
+                                            CASHBACK<br />
+                                            Huutojen palautus.                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/nobot.png" alt="BOTITON KOHDE! Tähän kohteeseen ei voi asettaa huutorobottia. Voit huutaa vain klikkaamalla!"
+                                                title="BOTITON KOHDE! Tähän kohteeseen ei voi asettaa huutorobottia. Voit huutaa vain klikkaamalla!" />
+                                        </td>
+                                        <td class="text">
+                                            BOTITON<br />
+                                            Bottien käyttö estetty.                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/1stclass.png" alt="1st Class - kohde! Tässä ensiluokkaisessa kohteessa on erillinen voittorajoitus. Voit voittaa näitä kohteita vain yhden (1) kappaleen kalenterikuukauden aikana!"
+                                                title="1st Class - kohde! Tässä ensiluokkaisessa kohteessa on erillinen voittorajoitus. Voit voittaa näitä kohteita vain yhden (1) kappaleen kalenterikuukauden aikana!" />
+                                        </td>
+                                        <td class="text">
+                                            1ST CLASS<br />
+                                            Näissä kohteissa voittorajoitus 1 kpl / kk                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/unlimited.png" alt="EI HUUTORAJOITUKSIA! Mikään rajoitus ei koske tätä kohdetta! Voit huutaa vaikka ostorajoituksesi olisi jo täynnä!"
+                                                title="EI HUUTORAJOITUKSIA! Mikään rajoitus ei koske tätä kohdetta! Voit huutaa vaikka ostorajoituksesi olisi jo täynnä!" />
+                                        </td>
+                                        <td class="text">
+                                            VAPAAKOHDE<br />
+                                            Ei voittorajoituksia.                                        </td>
+                                    </tr>
+<!--
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/item.png" alt="Kohde on suljettu uusilta huutajilta"
+                                                title="Kohde on suljettu uusilta huutajilta" />
+                                        </td>
+                                        <td class="text">
+                                            SICON_ICON_LIMITED<br />
+                                            SICON_ICON_LIMITED_DESC                                        </td>
+                                    </tr>
+-->
+<!--
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/sitngo.png" alt="ICON_SITNGO"
+                                                title="ICON_SITNGO" />
+                                        </td>
+                                        <td class="text">
+                                            Kutsukilpailu<br />
+                                            Vain kutsutut käyttäjät voivat huutaa näitä kohteita. Kaikilla osallisilla on käytössään sama rajallinen määrä huutoja.                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="icon">
+                                            <img src="layout/img/icons/item_open.png" alt="Kohde on vielä avoinna uusille huutajille"
+                                                title="Kohde on vielä avoinna uusille huutajille" />
+                                            <img src="layout/img/icons/item_closed.png" alt="Kohde on vielä avoinna uusille huutajille"
+                                                title="Kohde on vielä avoinna uusille huutajille" />
+                                        </td>
+                                        <td class="text">
+                                            Suljetun ryhmän kohde<br />
+                                            Kohde sulkeutuu uusilta huutajilta satunnaisella hetkellä. Tämän jälkeen voivat huutaa vain ne jotka ovat asettaneet kohteeseen vähintään yhden MANUAALISEN HUUDON. kts. lisää apua-osiosta.                                        </td>
+                                    </tr>
+-->
+                                </table>
+                                    <!--
+                                    <dt>
+                                        <img src="layout/img/icons/nowinonly.png" alt="Uusille asiakkaille! Voit huutaa tätä kohdetta vain jos sinulla on alle 3 voittoa!"
+                                            title="Uusille asiakkaille! Voit huutaa tätä kohdetta vain jos sinulla on alle 3 voittoa!" />
+                                    </dt>
+                                    <dd>
+                                        UUSILLE ASIAKKAILLE<br />
+                                         Voit huutaa jos sinulla on alle 3 voittoa                                    </dd>
+                                    -->
+                            </div>
+                        </div>
+                        <div class="ib_bottom"></div>
+                    </div>
+                    
+                    <div class="banners"> 
+                        <a  
+        
+        style="width: 183px; height: 373px; display: block; float: left; background: url('http://www.sunnycent.com/data/banner/25.dat') no-repeat center center;"></a>                    </div>
+
+                </div>
+                <!-- BAR END -->
+                <!-- DYNAMIC CONTENT -->
+                                                <div id="content_top"></div>
+                                <div id="content_bg">
+                <!-- CONTENT PAGE -->
+                
+<p><span style="font-size: small;">T&auml;m&auml; sivu ei valitettavasti ole olemassa tai se ei jostain syyst&auml; toimi, pahoittelemme.</span></p>
+                                </div> <!-- TEXT -->
+                <div id="content_bottom"></div>
+                                <!-- DYN END -->
+            </div>
+            <div id="copyright">
+                <p class="left">
+                    <a href="content.php?p=terms">Käyttöehdot</a> |
+                    <a href="content.php?p=info">Yritys</a> |
+                    <a href="content.php?p=privacy">Rekisteriseloste</a> |
+                    <a href="content.php?p=help">Apua</a> | 
+                                        <a href="http://fi.sunnycent.com/"><img src="layout/img/fin_flag.png" /></a> |
+                </p>
+                <div id="addthis">
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style">
+                    <a href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b67d07d7c311bb0" class="addthis_button_compact">Share</a>
+                    <span class="addthis_separator">|</span>
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_digg"></a>
+                    </div>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b67d07d7c311bb0"></script>
+                    <!-- AddThis Button END -->
+                </div>
+                <p class="right">Copyright &copy; 2010 SunnyCent senttihuutokauppa | Sivuston toteutus <a href="http://www.whitestone.fi/">Whitestone Oy</a></p>
+            </div>
+            <div id="categories">
+                                    <a href="kodinkoneet-ja-pienkoneet">kodinkoneet ja pienkoneet</a>
+                                    <a href="ipod-mp3-ja-audio">ipod, mp3 ja audio</a>
+                                    <a href="huutopaketit">huutopaketit</a>
+                                    <a href="digikamerat-ja-videokamerat">digikamerat ja videokamerat</a>
+                                    <a href="tietokoneet-kannettavat-ja-tarvikkeet">tietokoneet, kannettavat ja tarvikkeet</a>
+                                    <a href="muoti-design-ja-lifestyle">muoti, design ja lifestyle</a>
+                                    <a href="pelit-ja-konsolit">pelit ja konsolit</a>
+                                    <a href="tyokalut-piha-ja-puutarha">työkalut, piha ja puutarha</a>
+                                    <a href="lahjakortit">lahjakortit</a>
+                                    <a href="elintarvikkeet">elintarvikkeet</a>
+                                    <a href="tv-kotiteatteri-ja-video">tv, kotiteatteri ja video</a>
+                                    <a href="vapaa-aika-ja-harrasteet">vapaa-aika ja harrasteet</a>
+                                    <a href="koti-ja-sisustus">koti ja sisustus</a>
+                                    <a href="kannykat-ja-tarvikkeet">kännykät ja tarvikkeet</a>
+                                    <a href="gps-ja-navigointi">GPS ja navigointi</a>
+                                    <a href="liput-ja-tapahtumat">liput ja tapahtumat</a>
+                                    <a href="lelut-ja-lapset">lelut ja lapset</a>
+                            </div>
+        </div>        
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+            var pageTracker = _gat._getTracker("UA-13240163-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+        <!-- BEGIN Snoobi v1.4 -->
+        <script type="text/javascript" src="http://eu1.snoobi.com/snoop.php?tili=fi_sunnycent_com"></script>
+        <!-- END Snoobi v1.4 --> 
+    </body>
+</html>

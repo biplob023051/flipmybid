@@ -1,0 +1,64 @@
+/**
+ * This document describes how to implement the layer structure for design which will work
+ * with the current jquery
+ *
+ * All element should be, at least, under "auction-item" element, no matter if it placed under
+ * other elements(can be multiple), to make it works.
+ *
+ * The script now accept complex element structure for bid loading and bid button link.
+ *
+ * Any typo or missing element please let me know. The structure should looks like:
+ */
+<element class="auction-item" id="auction_{ID}" title="{ID}">
+    <!-- Showing the latest bidder -->
+    <element class="bid-bidder">Username</element>
+
+    <!-- Bid message such as "Your bid was placed", currently hidden-->
+    <element class="bid-message" style="display:none"></element>
+
+    <!-- Will show the loading image -->
+    <element class="bid-loading" style="display:none">
+        <img src="ajax-loading.gif" alt="Loading" />
+    </element>
+
+    <!-- Will show the timer -->
+    <element class="countdown">--:--:--</element>
+
+    <!-- Will show the button and link -->
+    <element class="bid-button">
+        <a href="/bid.php?id={ID}" title="{ID}" class="bid-button-link">
+            Bid (or can be an image)
+        </a>
+    </element>
+
+    <!-- Will show the histories -->
+    <!-- for auctions/view/ID which has ending soon auctions -->
+    <!-- include the custom js, look net4bids default_r36.js -->
+    <element class="bid-histories" id="bidHistoryTable{ID}">
+        <table>
+            <thead>
+                <td>Bid</td>
+                <td>Created</td>
+                <td>Username</td>
+            </thead>
+            <tbody>
+                ....
+            </tbody>
+        </table>
+    </element>
+
+
+    <!-- for auctions/view/ID which contains only one auction -->
+    <element id="bidHistoryTable">
+        <table>
+            <thead>
+                <td>Bid</td>
+                <td>Created</td>
+                <td>Username</td>
+            </thead>
+            <tbody>
+                ....
+            </tbody>
+        </table>
+    </element>
+</element>

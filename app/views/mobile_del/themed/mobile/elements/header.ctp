@@ -1,0 +1,1 @@
+<h1>FlipMyBid<span> mobile</span></h1>
