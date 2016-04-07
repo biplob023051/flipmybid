@@ -1,7 +1,13 @@
-<div id="contact-page" class="boxed">
-	<div class="content">
-		<h1><?php __('Add a Testimonial for auction:'); ?> <?php echo $auction['Product']['title']; ?></h1>
-
+<div class="col-md-3 col-sm-12 col-xs-12 g7">
+	<?php echo $this->element('menu_user'); ?>
+</div>
+<!--/ sidebar -->
+<div class="col-md-9 col-sm-12 col-xs-12 g5">
+	<div id="auctions" class="rounded">
+		<div id="tabs">
+            <h2><?php __('Add a Testimonial for auction:'); ?> <?php echo $auction['Product']['title']; ?></h2>
+        </div>
+		<div class="account">
 		<p><?php __('Fill in the form below to add your testimonial.  Your testimonial will be reviewed by the staff and if approved will show on the website.'); ?></p>
 
 		<?php $testimonialBids = $this->requestAction('/settings/get/testimonial_free_bids'); ?>
@@ -12,27 +18,29 @@
 				<p><?php echo sprintf(__('You will receive %s free bids for each testimonial that is approved to show on the website.', true), $testimonialBids);?></p>
 			<?php endif; ?>
 		<?php endif; ?>
+		<div class="">
+			<?php echo $form->create(null, array('type' => 'file', 'url' => '/testimonials/add/'.$auction['Auction']['id'])); ?>
+				<fieldset>
+					<?php
+					echo $form->input('name', array('label' => 'Name *', 'class' => 'form-control'));
+					echo $form->input('location', array('label' => 'Location *', 'class' => 'form-control'));
+					echo $form->input('testimonial', array('label' => 'Testimonial *', 'class' => 'form-control'));
 
-		<?php echo $form->create(null, array('type' => 'file', 'url' => '/testimonials/add/'.$auction['Auction']['id'])); ?>
+					if($this->requestAction('/settings/get/testimonial_videos')) {
+						echo $form->input('video', array('label' => 'Youtube Embedded HTML', 'class' => 'form-control'));
+					}
 
-		<fieldset>
-			<legend></legend>
+					if($this->requestAction('/settings/get/testimonial_images')) {
+						echo $form->input('image', array('type' => 'file', 'label' => __('Image', true), 'class' => 'form-control'));
+					}
+					echo $form->submit(__('Add Testimonial >>', true), array('class' => 'submit center-button', 'div' => false));
+					echo $form->end();
+					?>
+				</fieldset>
+			<p><?php echo $html->link(__('<< Back to own auctions', true), array('controller' => 'auctions', 'action' => 'won'), array('class' => 'backButton'));?></p>
 
-			<?php
-			echo $form->input('name', array('label' => 'Name *'));
-			echo $form->input('location', array('label' => 'Location *'));
-			echo $form->input('testimonial', array('label' => 'Testimonial *'));
-
-			if($this->requestAction('/settings/get/testimonial_videos')) {
-				echo $form->input('video', array('label' => 'Youtube Embedded HTML'));
-			}
-
-			if($this->requestAction('/settings/get/testimonial_images')) {
-				echo $form->input('image', array('type' => 'file', 'label' => __('Image', true)));
-			}
-
-			echo $form->end('Add Testimonial >>');
-			?>
-		</fieldset>
+			</div>
+		</div>
 	</div>
 </div>
+	

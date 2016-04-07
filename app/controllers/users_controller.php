@@ -168,11 +168,15 @@ class UsersController extends AppController {
 				}
 
 				$this->Session->setFlash(__('You have been successfully logged in.', true), 'default', array('class' => 'success'));
-				if(!empty($this->data['User']['url'])) {
-					$this->redirect($this->data['User']['url']);
-				} else {
-            		$this->redirect(array('action'=>'login'));
-          		}
+				// if(!empty($this->data['User']['url'])) {
+				// 	$this->redirect($this->data['User']['url']);
+				// } else {
+    //         		$this->redirect(array('action'=>'login'));
+    //       		}
+
+				
+				// redirect to home page
+				$this->redirect('/');
 			}
 		} else {
 			$id = $this->Auth->user('id');

@@ -170,3 +170,14 @@
 	</div>
 	<!--/ Auctions -->
 </div>
+
+<style type="text/css">
+fieldset {
+	margin-left: 20px !important;
+}
+.radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px !important;
+}
+</style>

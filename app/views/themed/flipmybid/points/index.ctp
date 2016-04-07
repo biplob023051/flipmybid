@@ -3,20 +3,20 @@
 </div>
 <!--/ sidebar -->
 <div class="col-md-9 col-sm-12 col-xs-12 g5">
-	<div id="auctions" class="rounded col-md-12 col-sm-12 col-xs-12">
+	<div id="auctions" class="rounded">
 		<div id="tabs">
 			<h2><?php __('My Reward Points');?></h2>
 		</div>
 		<div class="account">
 			<div class="">
-					<?php if(!empty($points)): ?>
-                    	<div class="paging-auct">
-							<?php echo $this->element('pagination'); ?>
-						</div>
-                        
-						<table class="default-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<?php if(!empty($points)): ?>
+                	<div class="paging-auct">
+						<?php echo $this->element('pagination'); ?>
+					</div>
+                    
+					<table class="default-table" width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr class="headings">
-						<td><?php echo $paginator->sort(__('Date', true), 'Point.created');?></td>
+							<td><?php echo $paginator->sort(__('Date', true), 'Point.created');?></td>
 							<td><?php echo $paginator->sort(__('Description', true), 'description');?></td>
 							<td><?php echo $paginator->sort(__('Debit', true), 'debit');?></td>
 							<td><?php echo $paginator->sort(__('Credit', true), 'credit');?></td>
@@ -31,40 +31,39 @@
 						foreach ($points as $point):
 							$class = null;
 							if ($i++ % 2 == 0) {
-								$class = ' class="altrow"';
+								$class = 'class="altrow"';
 							}
 						?>
-							<tr<?php echo $class;?>>
-								<td>
-									<?php echo $time->niceShort($point['Point']['created']); ?>
-								</td>
-								<td>
-									<?php echo $point['Point']['description']; ?>
-								</td>
-								<td>
-									<?php if($point['Point']['debit'] > 0) : ?><?php echo $point['Point']['debit']; ?><?php else: ?>&nbsp;<?php endif; ?>
-								</td>
-								<td>
-									<?php if($point['Point']['credit'] > 0) : ?><?php echo $point['Point']['credit']; ?><?php else: ?>&nbsp;<?php endif; ?>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-						</table>
+						<tr <?php echo $class;?>>
+							<td>
+								<?php echo $time->niceShort($point['Point']['created']); ?>
+							</td>
+							<td>
+								<?php echo $point['Point']['description']; ?>
+							</td>
+							<td>
+								<?php if($point['Point']['debit'] > 0) : ?><?php echo $point['Point']['debit']; ?><?php else: ?>&nbsp;<?php endif; ?>
+							</td>
+							<td>
+								<?php if($point['Point']['credit'] > 0) : ?><?php echo $point['Point']['credit']; ?><?php else: ?>&nbsp;<?php endif; ?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+					</table>
 
-						<div class="paging-auct">
-							<?php echo $this->element('pagination'); ?>
-						</div>
+					<div class="paging-auct">
+						<?php echo $this->element('pagination'); ?>
+					</div>
 
-					<?php else:?>
-						<p><?php __('You have no reward points at the moment.');?></p>
-					<?php endif;?>
-
+				<?php else:?>
+					<p><?php __('You have no reward points at the moment.');?></p>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>
 	<!--/ Auctions -->
 	<div class="clearfix"></div>
-	<div class="col-md-6 col-sm-6 col-xs-12 g5">
+	<div class="col-md-6 col-sm-6 col-xs-12 g5" style="margin: 0; padding: 0 1% 0 0;">
 		<div id="" class="rounded">
 			<div id="" style="background-color: #eaeaea; height: 40px; padding: 12px 0 0 5px;">
 				<h2 style="margin: 0 20px;"><?php __('FMB Tweet');?></h2>
@@ -88,7 +87,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-6 col-sm-6 col-xs-12 g5">
+	<div class="col-md-6 col-sm-6 col-xs-12 g5" style="margin: 0; padding: 0 0px 0 1%;">
 
 		<div id="" class="rounded">
 

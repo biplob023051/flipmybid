@@ -112,26 +112,6 @@
 </div>
 <div class="clearfix"></div>
 <div class="col-sm-12" style="margin-top:5px;">&nbsp;</div>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '449785581872611',
-            xfbml: true,
-            version: 'v2.5'
-        });
-    };
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <!--/ Listing -->
 

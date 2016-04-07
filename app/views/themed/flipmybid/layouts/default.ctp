@@ -39,16 +39,19 @@
     <![endif]-->
 
     <?php
-    //echo $javascript->link('jquery/jquery');
-    echo $javascript->link('jquery-1.11.3.min');
-    echo $javascript->link('jquery-ui.min');
-    echo $javascript->link('default_r36');
-    echo $javascript->link('jquery.prettyPhoto.js');
-    echo $javascript->link('cookiebar_r30');
-    echo $javascript->link('facebooklogin_r1');
-    echo $javascript->link('bootstrap.min');
-    echo $javascript->link('additional_r37');
-    echo $javascript->link('chart.min');
+    // //echo $javascript->link('jquery/jquery');
+    // echo $javascript->link('jquery-1.11.3.min');
+    // echo $javascript->link('jquery-ui.min');
+    // echo $javascript->link('default_r36');
+    // echo $javascript->link('jquery.prettyPhoto.js');
+    // echo $javascript->link('cookiebar_r30');
+    // echo $javascript->link('facebooklogin_r1');
+    // echo $javascript->link('bootstrap.min');
+    // echo $javascript->link('additional_r37');
+    // echo $javascript->link('chart.min');
+    ?>
+    <?php 
+    echo $this->Html->script(array('jquery-1.11.3.min', 'jquery-ui.min', 'default_r36', 'jquery.prettyPhoto.js', 'cookiebar_r30', 'facebooklogin_r1', 'bootstrap.min', 'additional_r37', 'chart.min'), array('data-cfasync' => "false"));
     ?>
     <style>
         #rankdialog {

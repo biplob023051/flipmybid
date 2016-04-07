@@ -727,6 +727,9 @@ class PaymentGatewaysController extends AppController{
 
 			$this->Paypal->configure($paypal);
 			$paypalData = $this->Paypal->getFormData();
+			// echo '<pre>';
+			// print_r($paypalData);
+			// exit;
 			$this->set('paypalData', $paypalData);
 		}else{
 			$this->Session->setFlash(__('Invalid payment gateway', true));

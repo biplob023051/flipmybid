@@ -129,7 +129,7 @@ $(document).ready(function(){
                          */
 
                         if(price != convertToNumber(item.Auction.price)){
-                            if(item.Auction.show_price){
+                            if(convertToNumber(item.Auction.show_price) != '0.00'){
                                 auctionObjects[item.Auction.element]['bid-price'].html(item.Auction.show_price);
                             }else{
                                 auctionObjects[item.Auction.element]['bid-price'].html(item.Auction.price);
@@ -422,8 +422,9 @@ function auctionRefresh(){
                          }
                          */
 
+
                         if(price != convertToNumber(item.Auction.price)){
-                            if(item.Auction.show_price){
+                            if(convertToNumber(item.Auction.show_price) != '0.00'){
                                 auctionObjects[item.Auction.element]['bid-price'].html(item.Auction.show_price);
                             }else{
                                 auctionObjects[item.Auction.element]['bid-price'].html(item.Auction.price);

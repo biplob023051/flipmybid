@@ -4,6 +4,25 @@ window.fbAsyncInit = function () {
         xfbml: true,
         version: 'v2.5'
     });
+
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+
+            FB.api('/me', {fields: 'id, name, email, first_name, last_name, gender', access_token: response.authResponse.accessToken},
+                function (response3) {
+                    window.facebookId = response3.id;
+                    window.facebookEmail = response3.email;
+                    window.facebookFirstName = response3.first_name;
+                    window.facebookLastName = response3.last_name;
+                    window.facebookGender = response3.gender;
+                    window.facebookBirthDay = response3.birthday;
+                    window.location.replace('/users/register/' + facebookId + '/' + facebookEmail+ '/'
+                        + facebookFirstName+ '/' + facebookLastName+ '/' + facebookGender + '/' + username );
+                    return false;
+                }
+            );
+        }
+    });
 };
 
 (function (d, s, id) {
@@ -34,11 +53,24 @@ $(function () {
 
     $('.fb-login-button').on('click', function () {
         //$('#loading-full').show();
-        var over = '<div id="overlay">' +
-            '<div id="loading" ></div>' +
-            '<div class="over-test">If nothing happens - Please disable any pop-up blockers in your browser<br/>(Press esc or click to close this message)</div>' +
-            '</div>';
-        $(over).appendTo('body');
+        // var over = '<div id="overlay">' +
+        //     '<div id="loading" ></div>' +
+        //     '<div class="over-test">If nothing happens - Please disable any pop-up blockers in your browser<br/>(Press esc or click to close this message)</div>' +
+        //     '</div>';
+        // $(over).appendTo('body');
+
+        FB.login(function (response) {
+            if (response.authResponse) {
+                FB.api('/me', {fields: 'id, name, email', access_token: response.authResponse.accessToken, display: 'popup'},
+                    function (response3) {
+                        window.facebookId = response3.id;
+                        window.facebookEmail = response3.email;
+                        window.location.replace('/users/login/' + facebookId + '/' + facebookEmail);
+                        return false;
+                    }
+                );
+            }
+        }, {scope: 'email,public_profile,user_friends'});
 
         // click on the overlay to remove it
         //$('#overlay').click(function() {
@@ -59,21 +91,6 @@ $(function () {
                 );
 
             }
-            else {
-                console.log('login needed');
-                FB.login(function (response) {
-                    if (response.authResponse) {
-                        FB.api('/me', {fields: 'id, name, email', access_token: response.authResponse.accessToken},
-                            function (response3) {
-                                window.facebookId = response3.id;
-                                window.facebookEmail = response3.email;
-                                window.location.replace('/users/login/' + facebookId + '/' + facebookEmail);
-                                return false;
-                            }
-                        );
-                    }
-                }, {scope: 'email,public_profile,user_friends'});
-            }
         });
     });
 
@@ -86,11 +103,11 @@ $(function () {
             return false;
         }
 
-        var over = '<div id="overlay">' +
-            '<div id="loading" ></div>' +
-            '<div class="over-test">If nothing happens - Please disable any pop-up blockers in your browser<br/>(Press esc or click to close this message)</div>' +
-            '</div>';
-        $(over).appendTo('body');
+        // var over = '<div id="overlay">' +
+        //     '<div id="loading" ></div>' +
+        //     '<div class="over-test">If nothing happens - Please disable any pop-up blockers in your browser<br/>(Press esc or click to close this message)</div>' +
+        //     '</div>';
+        // $(over).appendTo('body');
 
         // click on the overlay to remove it
         //$('#overlay').click(function() {
@@ -104,9 +121,9 @@ $(function () {
             }
         });
         console.log(username);
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
 
+        FB.login(function (response) {
+            if (response.authResponse) {
                 FB.api('/me', {fields: 'id, name, email, first_name, last_name, gender', access_token: response.authResponse.accessToken},
                     function (response3) {
                         window.facebookId = response3.id;
@@ -116,31 +133,13 @@ $(function () {
                         window.facebookGender = response3.gender;
                         window.facebookBirthDay = response3.birthday;
                         window.location.replace('/users/register/' + facebookId + '/' + facebookEmail+ '/'
-                            + facebookFirstName+ '/' + facebookLastName+ '/' + facebookGender + '/' + username );
+                            + facebookFirstName+ '/' + facebookLastName+ '/' + facebookGender + '/' + username  );
                         return false;
                     }
                 );
             }
-            else {
-                FB.login(function (response) {
-                    if (response.authResponse) {
-                        FB.api('/me', {fields: 'id, name, email, first_name, last_name, gender', access_token: response.authResponse.accessToken},
-                            function (response3) {
-                                window.facebookId = response3.id;
-                                window.facebookEmail = response3.email;
-                                window.facebookFirstName = response3.first_name;
-                                window.facebookLastName = response3.last_name;
-                                window.facebookGender = response3.gender;
-                                window.facebookBirthDay = response3.birthday;
-                                window.location.replace('/users/register/' + facebookId + '/' + facebookEmail+ '/'
-                                    + facebookFirstName+ '/' + facebookLastName+ '/' + facebookGender + '/' + username  );
-                                return false;
-                            }
-                        );
-                    }
-                }, {scope: 'email,public_profile,user_friends,user_birthday'});
-            }
-        });
+        }, {scope: 'email,public_profile,user_friends,user_birthday'});
+        
     });
 
     $('.fb-register-button-menu').on('click', function (e) {
